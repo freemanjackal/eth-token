@@ -5,7 +5,7 @@ import "./Pausable.sol";
 import "./MyPlubitToken.sol";
 import "./MathLib.sol";
 
-contract SaleTokenContract is Owned, Pausable, MathLib {
+contract SalePlubitContract is Owned, Pausable, MathLib {
 
     MyPlubitToken    pub;
 
@@ -20,7 +20,7 @@ contract SaleTokenContract is Owned, Pausable, MathLib {
     bool public isFinalized;                                                            // switched to true in operational state
     uint256 public constant decimals = 18;                                              // #dp in Indorse contract
     uint256 public tokenCreationCap;
-    uint256 public constant tokenExchangeRate = 1000;                                   // 1000 IND tokens per 1 ETH
+    uint256 public constant tokenExchangeRate = r;                                   // 1000 IND tokens per 1 ETH
     uint256 public constant minContribution = 0.05 ether;
     uint256 public constant maxTokens = 1 * (10 ** 6) * 10**decimals;
     uint256 public constant MAX_GAS_PRICE = 50000000000 wei;                            // maximum gas price for contribution transactions

@@ -14,11 +14,13 @@ contract MyPlubitToken is Owned, Token, Pausable {
     //contracts
     address public PlubSaleDeposit        = 0x0;      // deposit address for Indorse Sale contract
     address public PlubPresaleDeposit     = 0x0;      // deposit address for Indorse Presale Contributors
-    address public PlubTeamDeposit     = 0x0;      // deposit address for Indorse Vesting for team and advisors
+    address public PlubTeamDeposit        = 0x0;      // deposit address for Indorse Vesting for team and advisors
+    address public PlubNetDeposit        = 0x0;      // deposit address for Indorse Vesting for team and advisors
 
     uint256 public constant PlubSale      = 31603785 * 10**DECIMALS;                         
     uint256 public constant PlubPreSale   = 22995270 * 10**DECIMALS;                       
-    uint256 public constant PlubTeam   = 28079514 * 10**DECIMALS; 
+    uint256 public constant PlubTeam      = 28079514 * 10**DECIMALS; 
+    uint256 public constant PlubNet       = 28079514 * 10**DECIMALS; 
   
   mapping (address => bool) public frozenAccount;
 
@@ -28,8 +30,9 @@ contract MyPlubitToken is Owned, Token, Pausable {
       balances[PlubSaleDeposit]           = PlubSale;                                         // Deposit PBT 
       balances[PlubPresaleDeposit]        = PlubPreSale;                                      // Deposit PBT 
       balances[PlubTeamDeposit]           = PlubTeam;                                         // Deposit PBT 
-      
-      totalSupply = PlubSale + PlubPreSale + PlubTeam;
+      balances[PlubNetDeposit]            = PlubNet;                                         // Deposit PBT 
+
+      totalSupply = PlubSale + PlubPreSale + PlubTeam + PlubNet;
 
       Transfer(0x0,PlubSaleDeposit,PlubSale);
       Transfer(0x0,PlubPresaleDeposit,PlubPreSale);
